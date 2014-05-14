@@ -21,7 +21,13 @@ int main() {
 //	connectSocket(clientSocket, 11000, "127.0.0.1");
 	connectNonBlockSocket(clientSocket, 11000, "127.0.0.1");
 
-	sendMessageNonBlock(clientSocket, "I am client\n");
+	printf("Send message to Server\n");
+	while (1) {
+		int result = sendMessageNonBlock(clientSocket, "I am client @@@@@@@@@@@\n");
+		if (result > 0) {
+			break;
+		}
+	}
 
 	char* buffer = malloc(512);
 	while (1) {

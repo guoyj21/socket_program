@@ -11,11 +11,13 @@ LIBS =
 ODIR = ./
 LDIR = ./
 
-MODULE_NAME = block_socket
+#MODULE_NAME = nonblock_socket
+MODULE_NAME = epoll
+#MODULE_NAME=block_socket
 
 
-SOURCES = $(wildcard ./common/*.c)
-OBJS = $(SOURCES:.c=.o)
+COMMON_SOURCES = $(wildcard ./common/*.c)
+OBJS = $(COMMON_SOURCES:.c=.o)
 
 
 ./$(MODULE_NAME)/client: $(OBJS) ./$(MODULE_NAME)/client.o
@@ -36,5 +38,5 @@ all: ./$(MODULE_NAME)/client ./$(MODULE_NAME)/server
 
 .PHONY: clean
 clean:
-	rm ./common/*.o ./$(MODULE_NAME)/client ./$(MODULE_NAME)/server
+	rm ./common/*.o ./$(MODULE_NAME)/client ./$(MODULE_NAME)/server ./$(MODULE_NAME)/*.o ./$(MODULE_NAME)/*.o
 	@echo "clean....."

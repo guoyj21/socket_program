@@ -18,7 +18,7 @@ int main() {
 
 	connectSocket(clientSocket, 11000, "127.0.0.1");
 
-	sendMessage(clientSocket, "I am client\n");
+	sendMessage(clientSocket, "I am client***************\n");
 	char* buffer = malloc(512);
 	receiveMessage(clientSocket, buffer, 512);
 
