@@ -11,30 +11,30 @@ LIBS =
 ODIR = ./
 LDIR = ./
 
+MODULE_NAME = block_socket
+
 
 SOURCES = $(wildcard ./common/*.c)
 OBJS = $(SOURCES:.c=.o)
 
 
-./block_socket/client: $(OBJS) ./block_socket/client.o
+./$(MODULE_NAME)/client: $(OBJS) ./$(MODULE_NAME)/client.o
 	$(CC) -o $@ $^
 	@echo "client"
 
-./block_socket/server: $(OBJS) ./block_socket/server.o
+./$(MODULE_NAME)/server: $(OBJS) ./$(MODULE_NAME)/server.o
 	$(CC) -o $@ $^
 	@echo "server"
 
 %.o: %.c
 	$(CC) -g -Wall -c $< -o $@
 
-
-
 .PHONY: all
-all: ./block_socket/client ./block_socket/server
+all: ./$(MODULE_NAME)/client ./$(MODULE_NAME)/server
 	@echo "build..."
 
 
 .PHONY: clean
 clean:
-	rm ./block_socket/*.o ./block_socket/client ./block_socket/server
+	rm ./common/*.o ./$(MODULE_NAME)/client ./$(MODULE_NAME)/server
 	@echo "clean....."

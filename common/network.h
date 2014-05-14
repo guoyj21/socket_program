@@ -8,6 +8,7 @@
 #ifndef NETWORK_H_
 #define NETWORK_H_
 
+int openSocket();
 
 
 #endif /* NETWORK_H_ */

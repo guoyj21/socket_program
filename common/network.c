@@ -98,3 +98,7 @@ int receiveMessage(int pSocketFd, char *pBuffer, int pSize) {
 	return result;
 }
 
+int setNonBlock(int pSocketFd) {
+
+}
+
